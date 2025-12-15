@@ -90,7 +90,7 @@ export const experiencesData: ExperienceData[] = [
     location: "Gartner",
     description: "• Supported Fortune 500 healthcare clients through ERP transformation, focusing on program assurance and organizational readiness.\n• Conducted stakeholder interviews and readiness assessments to identify risks and support go-live planning.\n• Contributed to business development by supporting a $1M RPA proposal and automation use-case analysis.",
     icon: React.createElement(CgWorkAlt),
-    logo: getAssetPath("/logos/Gartner-symbol.png"),
+    logo: getAssetPath("/logos/Gartner-Symbol.png"),
     date: "May 2025 - Jul 2025",
   },
   {
