@@ -1,53 +1,143 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import Image from "next/image";
 import SectionHeading from "./section-heading";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
 import { experiencesData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
-// import { useTheme } from "@/context/theme-context";
+import { motion } from "framer-motion";
 
 export default function Experience() {
-  const { ref } = useSectionInView('Experience');
-  
+  const { ref } = useSectionInView("Experience");
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const handlePlanetClick = (index: number) => {
+    setSelectedIndex(selectedIndex === index ? null : index);
+  };
+
+  // Company colors for planets
+  const planetColors = [
+    "bg-gradient-to-br from-blue-400 to-blue-600", // UMass
+    "bg-[#cb2028]", // Aras
+    "bg-[#102a4c]", // Cloudwave
+    "bg-white dark:bg-white", // Staples
+    "bg-white dark:bg-white", // Yungsten
+    "bg-white dark:bg-white", // Box Byte
+    "bg-white dark:bg-white", // Gartner
+    "bg-white dark:bg-white", // CMU Tepper
+  ];
+
+  // Custom padding for each logo to control size
+  const logoPadding = [
+    "p-2", // UMass
+    "p-2", // Aras
+    "p-1", // Cloudwave
+    "p-1", // Staples
+    "p-1", // Yungsten
+    "p-2", // Box Byte
+    "p-2", // Gartner
+    "p-2", // CMU Tepper
+  ];
+
+  // Custom scale for each logo
+  const logoScale = [
+    "scale-75", // UMass
+    "scale-75", // Aras
+    "scale-125", // Cloudwave
+    "scale-125", // Staples
+    "scale-75", // Yungsten
+    "scale-75", // Box Byte
+    "scale-100", // Gartner
+    "scale-75", // CMU Tepper
+  ];
+
   return (
-    <section id='experience' ref={ref} className="mb-28">
-        <SectionHeading>My Experience</SectionHeading>
-        <VerticalTimeline lineColor="">
-            {
-            experiencesData.map((item, index) => (
-                    <React.Fragment key={index}>
-                        <VerticalTimelineElement 
-                        contentStyle={{
-                            background: "#f3f4f6",
-                            boxShadow: "none",
-                            border: "1px solid rgba(0, 0, 0, 0,05)",
-                            textAlign: "left",
-                            padding: "1.3rem 2rem",
-                        }}
-                        contentArrowStyle={{
-                            borderRight: "0.4rem solid #9ca3af"
-                        }}
-                        date={item.date}
-                        icon={item.icon}
-                        iconStyle={{
-                            background: "white",
-                            fontSize: "1.5rem",
-                        }} 
-                        visible={true}
-                        >
-                            <h3 className="font-semibold capitalize">{item.title}</h3>
-                            <p className="font-normal !mt-0">{item.location}</p>
-                            <p className="!mt-1 !font-normal text-gray-700">{item.description}</p>
-                        </VerticalTimelineElement>
-                    </React.Fragment>
-                ))
-            }
-        </VerticalTimeline>
+    <section ref={ref} id="experience" className="scroll-mt-28 mb-28 sm:mb-40">
+      <SectionHeading>My Experience</SectionHeading>
+
+      {/* Planets container */}
+      <div className="relative py-4 mb-6 sm:mb-8 max-h-[400px] sm:max-h-none overflow-y-auto sm:overflow-y-hidden overflow-x-hidden sm:overflow-x-auto bg-white/50 dark:bg-gray-800/50 sm:bg-transparent dark:sm:bg-transparent rounded-2xl sm:rounded-none border-2 border-gray-200 dark:border-gray-700 sm:border-0 dark:sm:border-0 mx-4 sm:mx-0" style={{ WebkitOverflowScrolling: 'touch' }}>
+        <div className="flex flex-col sm:flex-row justify-start sm:justify-center items-center relative gap-3 sm:gap-4 min-w-max px-4">
+          {/* Connecting line - positioned to go through planet centers */}
+          <div className="absolute left-1/2 sm:left-[80px] top-[40px] sm:top-1/2 bottom-[40px] sm:bottom-auto right-auto sm:right-[80px] w-[2px] sm:w-auto h-auto sm:h-[3px] sm:-translate-y-1/2 -translate-x-1/2 sm:translate-x-0 bg-gray-400 dark:bg-gray-500 -z-10" />
+
+          {experiencesData.map((experience, index) => (
+            <div key={index} className="flex flex-col items-center justify-center flex-shrink-0">
+              {/* Company name above planet */}
+              <div className="h-[52px] w-[120px] flex items-end justify-center mb-3">
+                <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 text-center font-bold">
+                  {experience.location}
+                </p>
+              </div>
+
+              {/* Planet */}
+              <motion.button
+                onClick={() => handlePlanetClick(index)}
+                className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full ${planetColors[index]} shadow-xl hover:shadow-2xl transition-all relative z-20 flex items-center justify-center text-white font-bold border-4 border-white dark:border-gray-800 hover:scale-110 active:scale-95 flex-shrink-0 overflow-hidden`}
+                animate={{
+                  scale: selectedIndex === index ? 1.15 : 1
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20
+                }}
+              >
+                {experience.logo ? (
+                  <div className={`relative w-full h-full ${logoPadding[index]}`}>
+                    <Image
+                      src={experience.logo}
+                      alt={experience.location}
+                      fill
+                      className={`object-contain ${logoScale[index]}`}
+                    />
+                  </div>
+                ) : (
+                  <span className="text-2xl sm:text-3xl">{experience.icon}</span>
+                )}
+              </motion.button>
+
+              {/* Date label */}
+              <div className="h-[52px] w-[120px] flex items-start justify-center mt-3">
+                <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
+                  {experience.date}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Content box container - same pattern as skills */}
+      <div className="px-4">
+        <div className="max-w-[768px] mx-auto bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg border-2 border-gray-200 dark:border-gray-700">
+          {selectedIndex !== null ? (
+            <div key={`content-${selectedIndex}`}>
+              <h3 className="font-bold text-lg sm:text-2xl mb-2 sm:mb-2 text-gray-900 dark:text-white">
+                {experiencesData[selectedIndex].title}
+              </h3>
+              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-1 sm:mb-2 font-semibold">
+                {experiencesData[selectedIndex].location}
+              </p>
+              <p className="text-sm sm:text-sm text-gray-500 dark:text-gray-500 mb-3 sm:mb-4">
+                {experiencesData[selectedIndex].date}
+              </p>
+              <div className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed space-y-2 sm:space-y-2">
+                {experiencesData[selectedIndex].description.split('\n').map((line, idx) => (
+                  <p key={idx} className="flex items-start">
+                    <span className="mr-2 sm:mr-2 flex-shrink-0">{line.startsWith('•') ? '•' : ''}</span>
+                    <span className="flex-1">{line.startsWith('•') ? line.substring(2) : line}</span>
+                  </p>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="flex items-center justify-center min-h-[60px] sm:min-h-[80px] text-gray-400 dark:text-gray-600">
+              <p className="text-sm sm:text-lg text-center px-2">Click on a planet to view experience details</p>
+            </div>
+          )}
+        </div>
+      </div>
     </section>
-  )
+  );
 }

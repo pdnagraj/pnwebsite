@@ -6,17 +6,17 @@ import { skillsData } from '@/lib/data'
 import { useSectionInView } from '@/lib/hooks';
 import { motion } from "framer-motion";
 
-
-const fadeInAnimationVariants = {
+const cardVariants = {
     initial: {
         opacity: 0,
-        y: 100
+        y: 50
     },
     animate: (index: number) => ({
         opacity: 1,
         y: 0,
         transition: {
-            delay: 0.05 * index,
+            delay: 0.1 * index,
+            duration: 0.5,
         }
     }),
 }
@@ -26,27 +26,40 @@ export default function Skills() {
   const { ref } = useSectionInView('Skills');
 
   return (
-    <section ref={ref} id='skills' className='mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40'>
+    <section ref={ref} id='skills' className='mb-28 scroll-mt-28 sm:mb-40'>
         <SectionHeading>My Skills</SectionHeading>
-        <ul className='flex flex-wrap justify-center gap-2 text-lg text-gray-800'>
-            {
-                skillsData.map((skill, index) => (
-                    <motion.li 
-                        className='bg-white borderBlack rounded-xl px-5 py-3' 
-                        key={index}
-                        variants={fadeInAnimationVariants}
-                        initial="initial"
-                        whileInView="animate"
-                        viewport={{
-                            once: true,
-                        }}
-                        custom={index}
+        <div className='max-w-6xl mx-auto px-4'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {skillsData.map((category, index) => (
+              <motion.div
+                key={index}
+                className='bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border-2 border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow'
+                variants={cardVariants}
+                initial="initial"
+                whileInView="animate"
+                viewport={{
+                    once: true,
+                }}
+                custom={index}
+              >
+                <h3 className='text-xl font-bold mb-4 text-gray-900 dark:text-white'>
+                  {category.title}
+                </h3>
+                <ul className='space-y-2'>
+                  {category.skills.map((skill, skillIndex) => (
+                    <li
+                      key={skillIndex}
+                      className='text-gray-700 dark:text-gray-300 text-sm flex items-start'
                     >
-                    {skill}
-                    </motion.li>
-                ))
-            }
-        </ul>
+                      <span className='mr-2 text-blue-500 dark:text-blue-400 flex-shrink-0'>•</span>
+                      <span>{skill}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
     </section>
   )
 }
