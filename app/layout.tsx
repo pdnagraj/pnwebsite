@@ -16,6 +16,18 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Parth | Personal Portfolio',
   description: 'Software Developer',
+  openGraph: {
+    title: 'Parth Nagraj | Personal Portfolio',
+    description: 'Software Developer',
+    images: ['/parthI.jpeg'],
+    url: 'https://pdnagraj.github.io/pnwebsite/',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Parth Nagraj | Personal Portfolio',
+    description: 'Software Developer',
+    images: ['/parthI.jpeg'],
+  },
 }
 
 export default function RootLayout({
