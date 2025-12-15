@@ -16,9 +16,6 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Parth | Personal Portfolio',
   description: 'Software Developer',
-  icons: {
-    icon: '/favicon.svg',
-  },
 }
 
 export default function RootLayout({
