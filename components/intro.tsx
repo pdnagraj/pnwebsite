@@ -8,6 +8,7 @@ import {BsArrowRight, BsGithub, BsLinkedin} from "react-icons/bs"
 import {HiDownload} from "react-icons/hi"
 import { FaGithubSquare } from 'react-icons/fa';
 import { useSectionInView } from '@/lib/hooks';
+import { getAssetPath } from '@/lib/utils';
 
 // add it so there is typing for the hi I am a software developer
 // Change text to "I am the founder of yungsten tech and a software developer with 5 years of experience"
@@ -25,7 +26,7 @@ export default function Intro() {
                     transition={{type: "tween", duration: 0.2}}
                 >
                     <Image
-                        src="/parthI.jpeg"
+                        src={getAssetPath("/parthI.jpeg")}
                         alt="Parth Portrait"
                         width="192"
                         height="192"
@@ -58,7 +59,7 @@ export default function Intro() {
             transition={{delay:0.1}}
         >
             <Link href="#contact" className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition dark:bg-white dark:text-gray-900'>Contact me here<BsArrowRight className='opacity-70 group-hover:translate-x-1 transition'/></Link>
-            <a className='group bg-white px-7 py-3 flex items-center gap-2 rounded-full focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border border-black/10 dark:bg-white/10 dark:border-white/10' href='/Parth_Nagraj_Resume.pdf' download>Download CV <HiDownload className='opacity-60 group-hover:translate-y-1 transition'/> </a>
+            <a className='group bg-white px-7 py-3 flex items-center gap-2 rounded-full focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border border-black/10 dark:bg-white/10 dark:border-white/10' href={getAssetPath('/Parth_Nagraj_Resume.pdf')} download>Download CV <HiDownload className='opacity-60 group-hover:translate-y-1 transition'/> </a>
             <a className='bg-white px-4 text-gray-700 py-3 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-110 hover:text-gray-950 active:scale-105 transition cursor-pointer border border-black/10 dark:bg-white/10 dark:text-white/60 dark:hover:text-white dark:border-white/10' href='https://www.linkedin.com/in/parthnagraj/' target='_blank'> <BsLinkedin /> </a>
             <a className='bg-white px-4 text-gray-700 py-3 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-110 hover:text-gray-950 active:scale-105 transition cursor-pointer border border-black/10 dark:bg-white/10 dark:text-white/60 dark:hover:text-white dark:border-white/10' href='https://github.com/pdnagraj' target='_blank'> <FaGithubSquare /> </a>
         </motion.div>
