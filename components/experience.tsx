@@ -62,18 +62,62 @@ export default function Experience() {
           <div className="absolute left-1/2 sm:left-[80px] top-[40px] sm:top-1/2 bottom-[40px] sm:bottom-auto right-auto sm:right-[80px] w-[2px] sm:w-auto h-auto sm:h-[3px] sm:-translate-y-1/2 -translate-x-1/2 sm:translate-x-0 bg-gray-400 dark:bg-gray-500 -z-10" />
 
           {experiencesData.map((experience, index) => (
-            <div key={index} className="flex flex-col items-center justify-center flex-shrink-0">
-              {/* Company name above planet */}
-              <div className="h-[52px] w-[120px] flex items-end justify-center mb-3">
+            <div key={index} className="flex flex-col sm:flex-col items-center justify-center flex-shrink-0">
+              {/* Company name above planet - desktop only */}
+              <div className="hidden sm:flex h-[52px] w-[120px] items-end justify-center mb-3">
                 <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 text-center font-bold">
                   {experience.location}
                 </p>
               </div>
 
-              {/* Planet */}
+              {/* Mobile layout: Company name, Planet, Date in a row */}
+              <div className="flex sm:hidden items-center justify-between w-full gap-1 px-2">
+                {/* Company name - left side */}
+                <div className="w-[100px] flex items-center justify-end pr-1">
+                  <p className="text-xs text-gray-700 dark:text-gray-300 text-right font-bold leading-tight">
+                    {experience.location}
+                  </p>
+                </div>
+
+                {/* Planet - center */}
+                <motion.button
+                  onClick={() => handlePlanetClick(index)}
+                  className={`w-16 h-16 rounded-full ${planetColors[index]} shadow-xl hover:shadow-2xl transition-all relative z-20 flex items-center justify-center text-white font-bold border-4 border-white dark:border-gray-800 hover:scale-110 active:scale-95 flex-shrink-0 overflow-hidden`}
+                  animate={{
+                    scale: selectedIndex === index ? 1.15 : 1
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20
+                  }}
+                >
+                  {experience.logo ? (
+                    <div className={`relative w-full h-full ${logoPadding[index]}`}>
+                      <Image
+                        src={experience.logo}
+                        alt={experience.location}
+                        fill
+                        className={`object-contain ${logoScale[index]}`}
+                      />
+                    </div>
+                  ) : (
+                    <span className="text-2xl">{experience.icon}</span>
+                  )}
+                </motion.button>
+
+                {/* Date - right side */}
+                <div className="w-[100px] flex items-center justify-start pl-1">
+                  <p className="text-xs text-gray-500 dark:text-gray-400 text-left leading-tight whitespace-nowrap">
+                    {experience.date}
+                  </p>
+                </div>
+              </div>
+
+              {/* Desktop Planet */}
               <motion.button
                 onClick={() => handlePlanetClick(index)}
-                className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full ${planetColors[index]} shadow-xl hover:shadow-2xl transition-all relative z-20 flex items-center justify-center text-white font-bold border-4 border-white dark:border-gray-800 hover:scale-110 active:scale-95 flex-shrink-0 overflow-hidden`}
+                className={`hidden sm:flex w-16 h-16 sm:w-20 sm:h-20 rounded-full ${planetColors[index]} shadow-xl hover:shadow-2xl transition-all relative z-20 items-center justify-center text-white font-bold border-4 border-white dark:border-gray-800 hover:scale-110 active:scale-95 flex-shrink-0 overflow-hidden`}
                 animate={{
                   scale: selectedIndex === index ? 1.15 : 1
                 }}
@@ -97,8 +141,8 @@ export default function Experience() {
                 )}
               </motion.button>
 
-              {/* Date label */}
-              <div className="h-[52px] w-[120px] flex items-start justify-center mt-3">
+              {/* Date label - desktop only */}
+              <div className="hidden sm:flex h-[52px] w-[120px] items-start justify-center mt-3">
                 <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
                   {experience.date}
                 </p>
