@@ -57,21 +57,18 @@ export default function Experience() {
 
       {/* Planets container */}
       <div className="relative py-4 mb-6 sm:mb-8 max-h-[400px] sm:max-h-none overflow-y-auto sm:overflow-y-hidden overflow-x-hidden sm:overflow-x-auto bg-white/50 dark:bg-gray-800/50 sm:bg-transparent dark:sm:bg-transparent rounded-2xl sm:rounded-none border-2 border-gray-200 dark:border-gray-700 sm:border-0 dark:sm:border-0 mx-4 sm:mx-0" style={{ WebkitOverflowScrolling: 'touch' }}>
-        <div className="flex flex-col sm:flex-row justify-start sm:justify-center items-center relative gap-3 sm:gap-4 min-w-max px-4">
+        {/* Mobile view - reversed order */}
+        <div className="flex flex-col sm:hidden justify-start items-center relative gap-3 min-w-max px-4">
           {/* Connecting line - positioned to go through planet centers */}
-          <div className="absolute left-1/2 sm:left-[80px] top-[40px] sm:top-1/2 bottom-[40px] sm:bottom-auto right-auto sm:right-[80px] w-[2px] sm:w-auto h-auto sm:h-[3px] sm:-translate-y-1/2 -translate-x-1/2 sm:translate-x-0 bg-gray-400 dark:bg-gray-500 -z-10" />
+          <div className="absolute left-1/2 top-[40px] bottom-[40px] w-[2px] -translate-x-1/2 bg-gray-400 dark:bg-gray-500 -z-10" />
 
-          {experiencesData.map((experience, index) => (
-            <div key={index} className="flex flex-col sm:flex-col items-center justify-center flex-shrink-0">
-              {/* Company name above planet - desktop only */}
-              <div className="hidden sm:flex h-[52px] w-[120px] items-end justify-center mb-3">
-                <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 text-center font-bold">
-                  {experience.location}
-                </p>
-              </div>
-
+          {[...experiencesData].reverse().map((experience, index) => {
+            // Get the original index for colors and other properties
+            const originalIndex = experiencesData.length - 1 - index;
+            return (
+            <div key={index} className="flex flex-col items-center justify-center flex-shrink-0">
               {/* Mobile layout: Company name, Planet, Date in a row */}
-              <div className="flex sm:hidden items-center justify-center w-full gap-0.5 px-2">
+              <div className="flex items-center justify-center w-full gap-0.5 px-2">
                 {/* Company name - left side */}
                 <div className="w-[95px] flex items-center justify-end pr-1">
                   <p className="text-xs text-gray-700 dark:text-gray-300 text-right font-bold leading-tight">
@@ -81,10 +78,10 @@ export default function Experience() {
 
                 {/* Planet - center */}
                 <motion.button
-                  onClick={() => handlePlanetClick(index)}
-                  className={`w-16 h-16 rounded-full ${planetColors[index]} shadow-xl hover:shadow-2xl transition-all relative z-20 flex items-center justify-center text-white font-bold border-4 border-white dark:border-gray-800 hover:scale-110 active:scale-95 flex-shrink-0 overflow-hidden`}
+                  onClick={() => handlePlanetClick(originalIndex)}
+                  className={`w-16 h-16 rounded-full ${planetColors[originalIndex]} shadow-xl hover:shadow-2xl transition-all relative z-20 flex items-center justify-center text-white font-bold border-4 border-white dark:border-gray-800 hover:scale-110 active:scale-95 flex-shrink-0 overflow-hidden`}
                   animate={{
-                    scale: selectedIndex === index ? 1.15 : 1
+                    scale: selectedIndex === originalIndex ? 1.15 : 1
                   }}
                   transition={{
                     type: "spring",
@@ -93,12 +90,12 @@ export default function Experience() {
                   }}
                 >
                   {experience.logo ? (
-                    <div className={`relative w-full h-full ${logoPadding[index]}`}>
+                    <div className={`relative w-full h-full ${logoPadding[originalIndex]}`}>
                       <Image
                         src={experience.logo}
                         alt={experience.location}
                         fill
-                        className={`object-contain ${logoScale[index]}`}
+                        className={`object-contain ${logoScale[originalIndex]}`}
                       />
                     </div>
                   ) : (
@@ -118,11 +115,29 @@ export default function Experience() {
                   </p>
                 </div>
               </div>
+            </div>
+            );
+          })}
+        </div>
+
+        {/* Desktop view - original order */}
+        <div className="hidden sm:flex flex-row justify-center items-center relative gap-4 min-w-max px-4">
+          {/* Connecting line - positioned to go through planet centers */}
+          <div className="absolute left-[80px] top-1/2 right-[80px] h-[3px] -translate-y-1/2 bg-gray-400 dark:bg-gray-500 -z-10" />
+
+          {experiencesData.map((experience, index) => (
+            <div key={index} className="flex flex-col items-center justify-center flex-shrink-0">
+              {/* Company name above planet - desktop only */}
+              <div className="h-[52px] w-[120px] items-end justify-center mb-3 flex">
+                <p className="text-sm text-gray-700 dark:text-gray-300 text-center font-bold">
+                  {experience.location}
+                </p>
+              </div>
 
               {/* Desktop Planet */}
               <motion.button
                 onClick={() => handlePlanetClick(index)}
-                className={`hidden sm:flex w-16 h-16 sm:w-20 sm:h-20 rounded-full ${planetColors[index]} shadow-xl hover:shadow-2xl transition-all relative z-20 items-center justify-center text-white font-bold border-4 border-white dark:border-gray-800 hover:scale-110 active:scale-95 flex-shrink-0 overflow-hidden`}
+                className={`w-20 h-20 rounded-full ${planetColors[index]} shadow-xl hover:shadow-2xl transition-all relative z-20 flex items-center justify-center text-white font-bold border-4 border-white dark:border-gray-800 hover:scale-110 active:scale-95 flex-shrink-0 overflow-hidden`}
                 animate={{
                   scale: selectedIndex === index ? 1.15 : 1
                 }}
@@ -142,12 +157,12 @@ export default function Experience() {
                     />
                   </div>
                 ) : (
-                  <span className="text-2xl sm:text-3xl">{experience.icon}</span>
+                  <span className="text-3xl">{experience.icon}</span>
                 )}
               </motion.button>
 
               {/* Date label - desktop only */}
-              <div className="hidden sm:flex h-[52px] w-[120px] items-start justify-center mt-3">
+              <div className="h-[52px] w-[120px] items-start justify-center mt-3 flex">
                 <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
                   {experience.date}
                 </p>
