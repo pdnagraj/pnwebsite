@@ -47,7 +47,7 @@ export const experiencesData: ExperienceData[] = [
   },
   {
     title: "Software Solutions Engineer",
-    location: "Aras Corporation",
+    location: "Aras Corp.",
     description: "• Implemented configurable product lifecycle and workflow solutions for enterprise clients across multiple industries.\n• Aligned technical implementations with client business processes to support operational improvements.",
     icon: React.createElement(CgWorkAlt),
     logo: getAssetPath("/logos/aras_corporation_logo.jpeg"),
