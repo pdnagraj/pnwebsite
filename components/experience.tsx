@@ -71,9 +71,9 @@ export default function Experience() {
               </div>
 
               {/* Mobile layout: Company name, Planet, Date in a row */}
-              <div className="flex sm:hidden items-center justify-between w-full gap-1 px-2">
+              <div className="flex sm:hidden items-center justify-center w-full gap-0.5 px-2">
                 {/* Company name - left side */}
-                <div className="w-[100px] flex items-center justify-end pr-1">
+                <div className="w-[95px] flex items-center justify-end pr-1">
                   <p className="text-xs text-gray-700 dark:text-gray-300 text-right font-bold leading-tight">
                     {experience.location}
                   </p>
@@ -107,9 +107,14 @@ export default function Experience() {
                 </motion.button>
 
                 {/* Date - right side */}
-                <div className="w-[100px] flex items-center justify-start pl-1">
-                  <p className="text-xs text-gray-500 dark:text-gray-400 text-left leading-tight whitespace-nowrap">
-                    {experience.date}
+                <div className="w-[95px] flex items-center justify-start pl-1">
+                  <p className="text-xs text-gray-500 dark:text-gray-400 text-left leading-tight">
+                    {experience.date.split(' - ').map((datePart, idx) => (
+                      <React.Fragment key={idx}>
+                        {datePart}
+                        {idx === 0 && <><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-<br /></>}
+                      </React.Fragment>
+                    ))}
                   </p>
                 </div>
               </div>
