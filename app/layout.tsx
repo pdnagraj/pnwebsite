@@ -1,6 +1,5 @@
 import './globals.css'
 import React from 'react';
-import Head from 'next/head'
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ActiveSectionContextProvider from '@/context/active-section-context';
@@ -19,14 +18,14 @@ export const metadata = {
   openGraph: {
     title: 'Parth Nagraj | Personal Portfolio',
     description: 'Software Developer',
-    images: ['/parthI.jpeg'],
+    images: ['https://pdnagraj.github.io/pnwebsite/parthI.jpeg'],
     url: 'https://pdnagraj.github.io/pnwebsite/',
   },
   twitter: {
     card: 'summary',
     title: 'Parth Nagraj | Personal Portfolio',
     description: 'Software Developer',
-    images: ['/parthI.jpeg'],
+    images: ['https://pdnagraj.github.io/pnwebsite/parthI.jpeg'],
   },
 }
 
