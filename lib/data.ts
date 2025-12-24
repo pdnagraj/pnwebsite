@@ -23,6 +23,10 @@ export const links = [
     hash: "#about",
   },
   {
+    name: "Education",
+    hash: "#education",
+  },
+  {
     name: "Experience",
     hash: "#experience",
   },
@@ -36,19 +40,30 @@ export const links = [
   },
 ] as const;
 
-export const experiencesData: ExperienceData[] = [
+export const educationData: ExperienceData[] = [
   {
-    title: "Bachelors of Computer Science",
-    location: "UMass Amherst",
-    description: "• Earned a Bachelor of Science in Computer Science with a focus on software engineering and algorithms.",
+    title: "Bachelor of Science in Computer Science",
+    location: "University of Massachusetts Amherst",
+    description: "• Built a strong foundation in software engineering, data structures, algorithms, and systems design.\n• Applied technical skills through team-based projects and real-world problem solving.\n• Developed analytical thinking and technical rigor that later supported work in consulting and operations.",
     icon: React.createElement(LuGraduationCap),
     logo: getAssetPath("/logos/Umass-Am-Logo.png"),
     date: "Sept 2016 - May 2020",
   },
   {
+    title: "Masters of Business Administration",
+    location: "Tepper School of Business at CMU",
+    description: "• MBA candidate concentrating in Strategy, Business Analytics, and AI in Business.\n• Building advanced skills in problem structuring, data-driven decision-making, and operational strategy.\n• Applying classroom learning through consulting-style projects, leadership development, and real-world case work.",
+    icon: React.createElement(LuGraduationCap),
+    logo: getAssetPath("/logos/Tepper-logo.jpg"),
+    date: "Aug 2024 - May 2026",
+  },
+];
+
+export const experiencesData: ExperienceData[] = [
+  {
     title: "Software Solutions Engineer",
     location: "Aras Corp.",
-    description: "• Implemented configurable product lifecycle and workflow solutions for enterprise clients across multiple industries.\n• Aligned technical implementations with client business processes to support operational improvements.",
+    description: "• Implemented configurable product lifecycle management (PLM) and workflow solutions for enterprise clients across aerospace, automotive, and technology sectors.\n• Translated business process requirements into scalable technical configurations, improving operational efficiency.\n• Partnered with client stakeholders to align system capabilities with process improvement and change initiatives.",
     icon: React.createElement(CgWorkAlt),
     logo: getAssetPath("/logos/aras_corporation_logo.jpeg"),
     date: "Sept 2020 - Mar 2022",
@@ -56,7 +71,7 @@ export const experiencesData: ExperienceData[] = [
   {
     title: "Software Engineer",
     location: "Cloudwave Inc.",
-    description: "• Supported government clients including the GSA by delivering compliant reporting and data tracking enhancements.\n• Worked within regulated environments to align technical delivery with stakeholder and compliance requirements.",
+    description: "• Delivered compliant reporting and data-tracking enhancements for government clients, including the GSA.\n• Operated within highly regulated environments, ensuring alignment with security, compliance, and audit requirements.\n• Collaborated with cross-functional stakeholders to translate regulatory needs into technical solutions.",
     icon: React.createElement(CgWorkAlt),
     logo: getAssetPath("/logos/Cloudwave-logo.png"),
     date: "Jul 2022 - Feb 2023",
@@ -64,7 +79,7 @@ export const experiencesData: ExperienceData[] = [
   {
     title: "Mid-level Software Developer",
     location: "Staples",
-    description: "• Partnered with cross-functional teams to design and implement a performance-based incentive system for warehouse operations.\n• Reduced operational errors by 10% and increased productivity by 7% through improved performance tracking.\n• Analyzed operational data to identify bottlenecks and support leadership decision-making.",
+    description: "• Partnered with Operations, Engineering, and Warehouse teams to redesign a performance-based incentive system.\n• Improved productivity tracking and accountability, reducing operational errors by 10% and increasing productivity by 7%.\n• Analyzed operational data to identify bottlenecks and support leadership decision-making, contributing to ~$10M in annual cost savings.",
     icon: React.createElement(CgWorkAlt),
     logo: getAssetPath("/logos/Staples-Logo.png"),
     date: "Jul 2023 - Mar 2024",
@@ -72,34 +87,26 @@ export const experiencesData: ExperienceData[] = [
   {
     title: "Co-Founder",
     location: "Yungsten Tech",
-    description: "• Helped grow the firm to 5+ high-ticket clients through outbound outreach and requirement gathering.\n• Coordinated 5–7 developers and client stakeholders across concurrent projects to deliver on schedule.\n• Supported internal operations including client communication and billing processes.",
+    description: "• Co-founded a software consulting firm delivering custom, end-to-end technical solutions for business clients.\n• Led client discovery, requirements gathering, and solution scoping across multiple engagements.\n• Coordinated 5–7 developers and client stakeholders across concurrent projects to deliver on time and within scope.\n• Drove outbound outreach and client management, growing the firm to 5+ high-ticket clients.",
     icon: React.createElement(FaReact),
     logo: getAssetPath("/logos/YT.png"),
     date: "Nov 2022 - Jul 2024",
   },
   {
-    title: "Co-Founder",
-    location: "Box Byte Digital",
-    description: "• Designed and operated a repeatable B2B outbound service, translating client goals into scalable workflows.\n• Improved average lead response rates from 9% to 34% and appointment conversion rates from 3% to 17% across clients.\n• Grew the business to 7+ high-ticket clients and exited through acquisition after stabilizing service operations.",
-    icon: React.createElement(CgWorkAlt),
-    logo: getAssetPath("/logos/BOX_BYTE_LOGO.png"),
-    date: "Jul 2024 - Nov 2025",
-  },
-  {
     title: "Summer Associate, Consulting",
     location: "Gartner",
-    description: "• Supported Fortune 500 healthcare clients through ERP transformation, focusing on program assurance and organizational readiness.\n• Conducted stakeholder interviews and readiness assessments to identify risks and support go-live planning.\n• Contributed to business development by supporting a $1M RPA proposal and automation use-case analysis.",
+    description: "• Supported Fortune 500 healthcare clients through ERP transformation initiatives, focusing on readiness, risk mitigation, and program assurance.\n• Conducted stakeholder interviews and cross-functional assessments across HR, IT, and Operations to identify go-live risks.\n• Developed business cases and automation use-case analyses, contributing to a $1M RPA opportunity.\n• Worked closely with senior consultants and partners to deliver structured insights and client-ready recommendations.",
     icon: React.createElement(CgWorkAlt),
     logo: getAssetPath("/logos/Gartner-Symbol.png"),
     date: "May 2025 - Jul 2025",
   },
   {
-    title: "MBA Candidate",
-    location: "CMU Tepper",
-    description: "• MBA candidate concentrating in Strategy and Business Analytics.\n• Building leadership, analytical, and operational skills through coursework and applied projects.",
-    icon: React.createElement(LuGraduationCap),
-    logo: getAssetPath("/logos/Tepper-logo.jpg"),
-    date: "Aug 2024 - May 2026",
+    title: "Co-Founder",
+    location: "Box Byte Digital",
+    description: "• Designed and operated a repeatable B2B outbound growth system, translating client goals into scalable workflows.\n• Increased average lead response rates from 9% to 34% and appointment conversion rates from 3% to 17%.\n• Built CRM pipelines, automated follow-ups, and standardized delivery processes to ensure consistent outcomes.\n• Scaled the business to 7+ high-ticket clients and exited through acquisition after stabilizing operations.",
+    icon: React.createElement(CgWorkAlt),
+    logo: getAssetPath("/logos/BOX_BYTE_LOGO.png"),
+    date: "Jul 2024 - Nov 2025",
   },
 ];
 
@@ -155,14 +162,13 @@ export const skillsData = [
     ],
   },
   {
-    title: "Industries",
+    title: "Industry Experience",
     skills: [
-      "Healthcare",
-      "Enterprise Software",
+      "Enterprise Software and Technology Services",
+      "B2B Services and Professional Services",
+      "Retail, Supply Chain, and Warehouse Operations",
       "Government and Public Sector",
-      "Retail and Supply Chain",
-      "Warehouse and Operations",
-      "B2B Services",
+      "Healthcare Systems and Payers",
     ],
   },
 ] as const;

@@ -17,38 +17,32 @@ export default function Experience() {
 
   // Company colors for planets
   const planetColors = [
-    "bg-gradient-to-br from-blue-400 to-blue-600", // UMass
     "bg-[#cb2028]", // Aras
     "bg-[#102a4c]", // Cloudwave
     "bg-white dark:bg-white", // Staples
     "bg-white dark:bg-white", // Yungsten
-    "bg-white dark:bg-white", // Box Byte
     "bg-white dark:bg-white", // Gartner
-    "bg-white dark:bg-white", // CMU Tepper
+    "bg-white dark:bg-white", // Box Byte
   ];
 
   // Custom padding for each logo to control size
   const logoPadding = [
-    "p-2", // UMass
     "p-2", // Aras
     "p-1", // Cloudwave
     "p-1", // Staples
     "p-1", // Yungsten
-    "p-2", // Box Byte
     "p-2", // Gartner
-    "p-2", // CMU Tepper
+    "p-2", // Box Byte
   ];
 
   // Custom scale for each logo
   const logoScale = [
-    "scale-75", // UMass
     "scale-75", // Aras
     "scale-125", // Cloudwave
     "scale-125", // Staples
     "scale-75", // Yungsten
-    "scale-75", // Box Byte
     "scale-100", // Gartner
-    "scale-75", // CMU Tepper
+    "scale-75", // Box Byte
   ];
 
   return (

@@ -49,7 +49,7 @@ export default function Intro() {
             initial={{opacity: 0, y: 100}}
             animate={{opacity:1, y: 0}}
         >
-            <span className='font-bold'>Hi, I'm Parth Nagraj.</span> I turn complex problems into scalable solutions through technology and strategy.
+            <span className='font-bold'>Hi, I'm Parth Nagraj.</span> I turn complex, ambiguous problems into structured, scalable solutions at the intersection of technology and strategy.
         </motion.h1>
 
         <motion.div 
