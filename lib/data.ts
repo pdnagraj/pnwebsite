@@ -50,7 +50,7 @@ export const educationData: ExperienceData[] = [
     date: "Sept 2016 - May 2020",
   },
   {
-    title: "Masters of Business Administration",
+    title: "Master of Business Administration",
     location: "Tepper School of Business at CMU",
     description: "• MBA candidate concentrating in Strategy, Business Analytics, and AI in Business.\n• Building advanced skills in problem structuring, data-driven decision-making, and operational strategy.\n• Applying classroom learning through consulting-style projects, leadership development, and real-world case work.",
     icon: React.createElement(LuGraduationCap),
