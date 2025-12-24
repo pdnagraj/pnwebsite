@@ -50,7 +50,7 @@ export default function Experience() {
       <SectionHeading>My Experience</SectionHeading>
 
       {/* Planets container */}
-      <div className="relative py-4 mb-6 sm:mb-8 max-h-[400px] sm:max-h-none overflow-y-auto sm:overflow-y-hidden overflow-x-hidden sm:overflow-x-auto bg-white/50 dark:bg-gray-800/50 sm:bg-transparent dark:sm:bg-transparent rounded-2xl sm:rounded-none border-2 border-gray-200 dark:border-gray-700 sm:border-0 dark:sm:border-0 mx-4 sm:mx-0" style={{ WebkitOverflowScrolling: 'touch' }}>
+      <div className="relative py-2 mb-6 sm:mb-8 max-h-[280px] sm:max-h-none overflow-y-auto sm:overflow-y-hidden overflow-x-hidden sm:overflow-x-auto bg-white/50 dark:bg-gray-800/50 sm:bg-transparent dark:sm:bg-transparent rounded-2xl sm:rounded-none border-2 border-gray-200 dark:border-gray-700 sm:border-0 dark:sm:border-0 mx-4 sm:mx-0" style={{ WebkitOverflowScrolling: 'touch' }}>
         {/* Mobile view - reversed order */}
         <div className="flex flex-col sm:hidden justify-start items-center relative gap-3 min-w-max px-4">
           {/* Connecting line - positioned to go through planet centers */}

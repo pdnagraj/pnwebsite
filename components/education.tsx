@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 export default function Education() {
   const { ref } = useSectionInView("Education");
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
 
   // Custom scale for each logo
   const logoScale = [
@@ -18,7 +18,15 @@ export default function Education() {
   ];
 
   const handleCardClick = (index: number) => {
-    setSelectedIndex(selectedIndex === index ? null : index);
+    setExpandedCards(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(index)) {
+        newSet.delete(index);
+      } else {
+        newSet.add(index);
+      }
+      return newSet;
+    });
   };
 
   return (
@@ -33,7 +41,7 @@ export default function Education() {
               key={index}
               onClick={() => handleCardClick(index)}
               className={`bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border-2 cursor-pointer transition-all duration-300 ${
-                selectedIndex === index
+                expandedCards.has(index)
                   ? "border-blue-500 dark:border-blue-400 scale-[1.02]"
                   : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
               }`}
@@ -70,7 +78,7 @@ export default function Education() {
               </div>
 
               {/* Expandable details */}
-              {selectedIndex === index && (
+              {expandedCards.has(index) && (
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
@@ -93,7 +101,7 @@ export default function Education() {
 
               {/* Click hint */}
               <div className={`mt-3 text-xs text-center transition-opacity duration-200 ${
-                selectedIndex === index ? "opacity-0" : "opacity-50"
+                expandedCards.has(index) ? "opacity-0" : "opacity-50"
               }`}>
                 <span className="text-gray-500 dark:text-gray-400">Click to expand</span>
               </div>
