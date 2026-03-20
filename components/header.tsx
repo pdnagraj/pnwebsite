@@ -32,7 +32,7 @@ export default function Header() {
     <header className="z-[999] relative">
       {/* Desktop header background - hidden on mobile */}
       <motion.div
-        className="hidden sm:block fixed top-6 left-1/2 h-[3.25rem] w-[42rem] rounded-full border bg-white border-white border-opacity-40 bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
+        className="hidden sm:block fixed top-6 left-1/2 h-[3.25rem] w-[36rem] rounded-full border bg-white border-white border-opacity-40 bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
         initial={{ y: -100, x: "-50%", opacity: 0 }}
         animate={{ y: 0, x: "-50%", opacity: 1 }}
       ></motion.div>
@@ -105,6 +105,7 @@ export default function Header() {
         )}
       </AnimatePresence>
 
+      {/* Desktop navigation */}
       {/* Desktop navigation */}
       <nav className="hidden sm:flex fixed top-[1.7rem] left-1/2 -translate-x-1/2 h-[initial] py-0">
         <ul className="flex items-center justify-center gap-5 text-[0.9rem] font-medium text-gray-500">

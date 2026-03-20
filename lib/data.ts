@@ -108,6 +108,14 @@ export const experiencesData: ExperienceData[] = [
     logo: getAssetPath("/logos/BOX_BYTE_LOGO.png"),
     date: "Jul 2024 - Nov 2025",
   },
+  {
+    title: "Product & Strategy Lead",
+    location: "TradeCanny",
+    description: "• Building an AI-powered behavioral intelligence platform to help traders improve discipline and decision-making.\n• Analyzing 100+ trades to identify patterns such as overtrading, cutting winners early, and loss chasing.\n• Designed SMS-based nudging system driving consistent trade reviews and daily engagement across early beta users.\n• Leading product development from concept to beta (20+ users), iterating based on real user feedback.",
+    icon: React.createElement(CgWorkAlt),
+    logo: getAssetPath("/logos/TradeCanny-logo.png"),
+    date: "Oct 2025 - Present",
+  },
 ];
 
 export const skillsData = [

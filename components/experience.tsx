@@ -23,6 +23,7 @@ export default function Experience() {
     "bg-white dark:bg-white", // Yungsten
     "bg-white dark:bg-white", // Gartner
     "bg-white dark:bg-white", // Box Byte
+    "bg-[#0a1628] dark:bg-[#0a1628]", // TradeCanny
   ];
 
   // Custom padding for each logo to control size
@@ -33,6 +34,7 @@ export default function Experience() {
     "p-1", // Yungsten
     "p-2", // Gartner
     "p-2", // Box Byte
+    "p-3", // TradeCanny
   ];
 
   // Custom scale for each logo
@@ -43,6 +45,7 @@ export default function Experience() {
     "scale-75", // Yungsten
     "scale-100", // Gartner
     "scale-75", // Box Byte
+    "scale-75", // TradeCanny
   ];
 
   return (

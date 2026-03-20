@@ -19,16 +19,16 @@ export default function About() {
             transition={{delay:0.175}}
           >
             <p className='mb-4 text-gray-700 dark:text-gray-300 leading-relaxed'>
-              I am a <span className='font-bold text-gray-900 dark:text-white'>University of Massachusetts Amherst</span> graduate with a <span className='font-bold text-gray-900 dark:text-white'>Bachelor's degree in Computer Science</span> and an <span className='font-bold text-gray-900 dark:text-white'>MBA candidate</span> at <span className='font-bold text-gray-900 dark:text-white'>Carnegie Mellon University's Tepper School of Business</span>. My background spans <span className='font-bold text-gray-900 dark:text-white'>software engineering, consulting, and building and scaling early-stage businesses</span>, with experience operating at the <span className='font-bold text-gray-900 dark:text-white'>intersection of technology, strategy, and execution</span>.
+              I am a <span className='font-bold text-gray-900 dark:text-white'>Computer Science graduate from the University of Massachusetts Amherst</span> and an <span className='font-bold text-gray-900 dark:text-white'>MBA candidate at Carnegie Mellon's Tepper School of Business</span>, with experience across <span className='font-bold text-gray-900 dark:text-white'>software engineering, consulting, and building early-stage businesses</span>.
             </p>
             <p className='mb-4 text-gray-700 dark:text-gray-300 leading-relaxed'>
-              I specialize in <span className='font-bold text-gray-900 dark:text-white'>breaking down ambiguous, complex problems into structured, actionable plans</span>. My work focuses on <span className='font-bold text-gray-900 dark:text-white'>aligning stakeholders, improving operational and go-to-market processes</span>, and delivering outcomes that are <span className='font-bold text-gray-900 dark:text-white'>measurable, repeatable, and scalable</span>.
+              I focus on turning ambiguous problems into <span className='font-bold text-gray-900 dark:text-white'>structured, actionable systems</span>. This includes improving operations, designing <span className='font-bold text-gray-900 dark:text-white'>go-to-market processes</span>, and building products from the ground up.
             </p>
             <p className='mb-4 text-gray-700 dark:text-gray-300 leading-relaxed'>
-              I value <span className='font-bold text-gray-900 dark:text-white'>clarity, disciplined execution, and strong operating systems</span>. By designing <span className='font-bold text-gray-900 dark:text-white'>effective workflows, data-driven processes, and accountability mechanisms</span>, I help teams <span className='font-bold text-gray-900 dark:text-white'>move faster, make better decisions, and execute with confidence</span>.
+              Currently, I am building <span className='font-bold text-gray-900 dark:text-white'>TradeCanny</span>, an <span className='font-bold text-gray-900 dark:text-white'>AI-powered behavioral intelligence platform</span> that helps traders improve discipline and decision-making through data-driven insights and coaching.
             </p>
             <p className='text-gray-700 dark:text-gray-300 leading-relaxed'>
-              I am seeking roles where I can take on <span className='font-bold text-gray-900 dark:text-white'>complex challenges, learn at a high pace</span>, and drive <span className='font-bold text-gray-900 dark:text-white'>meaningful impact through structured thinking, collaboration, and execution</span>.
+              I value <span className='font-bold text-gray-900 dark:text-white'>clarity, disciplined execution, and measurable outcomes</span>. I enjoy working on complex problems, moving quickly, and building systems that scale.
             </p>
           </motion.div>
         </div>

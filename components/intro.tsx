@@ -49,7 +49,7 @@ export default function Intro() {
             initial={{opacity: 0, y: 100}}
             animate={{opacity:1, y: 0}}
         >
-            <span className='font-bold'>Hi, I'm Parth Nagraj.</span> I turn complex, ambiguous problems into structured, scalable solutions at the intersection of technology and strategy.
+            <span className='font-bold'>Hi, I'm Parth Nagraj.</span> I build systems that turn complex problems into measurable outcomes, from AI products like <a href="https://tradecanny.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300 transition">TradeCanny</a> to scalable operational workflows.
         </motion.h1>
 
         <motion.div 
